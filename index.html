@@ -1,0 +1,75 @@
+<!-- Created by Aki Carusillo-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Space Shooting Game by Aki Carusillo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    
+    </head>
+
+<body onload="BodyLoaded()">
+    <script src="script.js" async defer></script>
+
+  <div id="L_Parent">
+    <div id="Load"></div>
+    <div id="LoadingData">Loading Now</div>
+  </div>
+
+
+  <div id="MainMenu">
+    <div id="Transparent"><br/><br/><br/><br/><br/><br/><b>
+      Ready?</b><br/><span style="font-size:14;">Starting</span><br/><br/>
+      <button id="Start" onclick="PlayNow()">Play Now</button>
+    </div>
+  </div>
+
+
+
+  <div id="playgroundParent" onclick="Shoot()">
+    <div id="messageParent">
+
+      <div id="message">
+        <div id="comment">Good!</div>
+        <br/><br/>
+        <div id="ScoreText">Your Score : 100</div>
+        <div id="HighScore">Your Highest Score: 1000</div>
+        <br/>
+        <button id="Replay">Replay</button>
+
+      </div>
+    </div>
+
+    <div id="Score">Score: 0</div>
+    <div id="Right">
+       <img src="https://cdn-icons-png.flaticon.com/512/391/391123.png" height="30" width="30" draggable="false" />
+    </div>
+    
+    <div id="Left">
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP-7KUpVHaMCkNvGOOMiauSnsVDdJiuZ8cbQ&usqp=CAU" height="30" width="30" draggable="false" />
+    </div>
+    <div id="PlayerParent">
+      <img id="Player" src="https://preview.redd.it/yct20hubfk061.png?auto=webp&s=32226b397578b664ed794b64938ce40adf3298fe" height="75" width="45" draggable="false" />
+
+      <img id="Bullet" src="https://www.nicepng.com/png/detail/124-1247200_missle-png-mario-red-bullet-bill.png" height="30" width="15" />
+      <div id="CollisionDetector"></div>
+    </div>
+
+
+    <img class="Invaders" src="https://images.squarespace-cdn.com/content/v1/5bcfdf91e8ba4404c104e52e/1541873022686-6O2AYHS0DN21WMS3RBUL/UFO-awkward.gif" height="30" width="30" />
+    <img class="Invaders" src="https://images.squarespace-cdn.com/content/v1/5bcfdf91e8ba4404c104e52e/1541873022686-6O2AYHS0DN21WMS3RBUL/UFO-awkward.gif" height="30" width="30" />
+    <img class="Invaders" src="https://images.squarespace-cdn.com/content/v1/5bcfdf91e8ba4404c104e52e/1541873022686-6O2AYHS0DN21WMS3RBUL/UFO-awkward.gif" height="30" width="30" />
+    <img class="Invaders" src="https://images.squarespace-cdn.com/content/v1/5bcfdf91e8ba4404c104e52e/1541873022686-6O2AYHS0DN21WMS3RBUL/UFO-awkward.gif" height="30" width="30" />
+    <img class="Invaders" src="https://images.squarespace-cdn.com/content/v1/5bcfdf91e8ba4404c104e52e/1541873022686-6O2AYHS0DN21WMS3RBUL/UFO-awkward.gif" height="30" width="30" />
+    <img class="Invaders" src="https://images.squarespace-cdn.com/content/v1/5bcfdf91e8ba4404c104e52e/1541873022686-6O2AYHS0DN21WMS3RBUL/UFO-awkward.gif" height="30" width="30" />
+    <img class="Invaders" src="https://images.squarespace-cdn.com/content/v1/5bcfdf91e8ba4404c104e52e/1541873022686-6O2AYHS0DN21WMS3RBUL/UFO-awkward.gif" height="30" width="30" />
+    <img class="Invaders" src="https://images.squarespace-cdn.com/content/v1/5bcfdf91e8ba4404c104e52e/1541873022686-6O2AYHS0DN21WMS3RBUL/UFO-awkward.gif" height="30" width="30" />
+    <img class="Invaders" src="https://images.squarespace-cdn.com/content/v1/5bcfdf91e8ba4404c104e52e/1541873022686-6O2AYHS0DN21WMS3RBUL/UFO-awkward.gif" height="30" width="30" />
+
+
+  </div>
+</body>
+</html>

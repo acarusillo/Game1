@@ -1,4 +1,4 @@
-/* Created by Aki Carusillo */
+/* PS Project -  Aki Carusillo */
 
 PlaygroundParent
 {
@@ -122,7 +122,6 @@ PlaygroundParent
     transition: top 500ms linear;
     border-radius: 12px;
     
-    
 }
 #Comment
 {
@@ -164,12 +163,9 @@ PlaygroundParent
 {
     height: 100%;
     width: 100%;
-    
-
     position: fixed;
     left:0;
     top:0;
-
 
 }
 
@@ -203,7 +199,7 @@ PlaygroundParent
 {
   height: 30px;
   width: 30px;
-  font-size: 12;
+  font-size: 25;
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
   top: 20%;
@@ -235,9 +231,9 @@ PlaygroundParent
 
 #MainMenu
 {
-    height: 350px;
-    width: 250px;
-    position: fixed;
+    height: 750px;
+    width: 1050px;
+    position: auto;
     top: 0%;
     left: 0%;
     right: 0%;
@@ -246,7 +242,7 @@ PlaygroundParent
 
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18;
+    font-size: 40;
     text-align: center;
     border-radius:50px;
     box-shadow: 0 3px 14px 1px rgba(0, 0, 0, 1);
@@ -263,4 +259,5 @@ PlaygroundParent
     width: 100%;
     border-radius:50px;
     background: rgba(0,0,0,0.6);
+    
 }

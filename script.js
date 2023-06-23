@@ -1,16 +1,14 @@
-// Created by Aki Carusillo
+// PS Project -  Aki Carusillo 
 
-var PlayerX=0;
+var Player=0;
 var ToMove=30;
-
-
 
 var Shooted=false;
 var BulletY=-25;
 var BulletX=17;
 var GameOver=true;
 var Score=0;
-var StoneMovingSpeed=2;
+var InvadersMovingSpeed=2;
 var ContinuouslyMove=false;
 var ToMoveContinuously=1;
 var HighScore=0;
@@ -18,14 +16,12 @@ var CollisionDetectorX;
 
 var deg=0;
 var Time=1;
-var Comments=["Nice Try!","Great!","Yay!","Wow!","Awesome!","Sweet!","Yes!","You are the best!","Amazing!","Good!"];
+var Comments=["Way to go!","Great!","Yay!","Wow!","Awesome!","Sweet!","Yes!","You are the best!","Amazing!","Good!"];
 function MoveRight()
 {
-    
     ContinuouslyMove=true;
     ToMoveContinuously=1;
         //  Move(ToMove);
-      
 
 }
 function MoveLeft()
@@ -35,11 +31,7 @@ function MoveLeft()
     ToMoveContinuously=-1;
             //  Move(-ToMove);
     
-    
-    
 }
-
-
 
 function BodyLoaded()
 {
@@ -48,7 +40,6 @@ function BodyLoaded()
     clearInterval(int1);
     
 }
-
 
 
 function Move(Amount) //Positive number to move right and negative to move left
@@ -73,7 +64,6 @@ function Shoot()
 }
 
 
-
 function ToggleBullet()
 {
     if(!Shooted)
@@ -94,32 +84,23 @@ function ToggleBullet()
             $(Bullet).hide();
         }
     
-    
 }
-
-
-
-
-
 
 
 function setRandomStonePosition()
 {
-    var stones=document.getElementsByClassName("Stones");
+    var invaders=document.getElementsByClassName("invaders");
     
-    for(var i=0;i<stones.length;i++)
+    for(var i=0;i<invaders.length;i++)
         {
-            var width=parseInt($(stones[i]).attr("width"));
-            var height=parseInt($(stones[i]).attr("height"));
-            $(stones[i]).css("left",RangedRandomNumberGenerator(30,document.getElementById("PlaygroundParent").offsetWidth-width));
+            var width=parseInt($(invaders[i]).attr("width"));
+            var height=parseInt($(invaders[i]).attr("height"));
+            $(invaders[i]).css("left",RangedRandomNumberGenerator(30,document.getElementById("PlaygroundParent").offsetWidth-width));
             do
-               $(stones[i]).css("top",RangedRandomNumberGenerator(-window.innerHeight-170,-40));
+               $(invaders[i]).css("top",RangedRandomNumberGenerator(-window.innerHeight-170,-40));
             while((StonesCollidingY(i)));
         }
 }
-
-
-
 
 
 
@@ -129,56 +110,47 @@ function RangedRandomNumberGenerator(Min,Max)
 }
 
 
-
-
-
 function MoveStones()
 {
     
     if(GameOver)
         return;
-    var stones=document.getElementsByClassName("Stones");
+    var invaders=document.getElementsByClassName("invaders");
     var yPos;
-    for(var i=0;i<stones.length;i++)
+    for(var i=0;i<invaders.length;i++)
         {
-            yPos=parseInt($(stones[i]).css("top"));
+            yPos=parseInt($(invaders[i]).css("top"));
             if(yPos>=window.innerHeight+20)
                 {
-                    var width=parseInt($(stones[i]).attr("width"));
-                    var height=parseInt($(stones[i]).attr("height"));
-                    $(stones[i]).show();
-                    $(stones[i]).css("left",RangedRandomNumberGenerator(30,document.getElementById("PlaygroundParent").offsetWidth-width));
+                    var width=parseInt($(invaders[i]).attr("width"));
+                    var height=parseInt($(invaders[i]).attr("height"));
+                    $(invaders[i]).show();
+                    $(invaders[i]).css("left",RangedRandomNumberGenerator(30,document.getElementById("PlaygroundParent").offsetWidth-width));
                     do
-                        $(stones[i]).css("top",RangedRandomNumberGenerator(-window.innerHeight-170,-40));
+                        $(invaders[i]).css("top",RangedRandomNumberGenerator(-window.innerHeight-170,-40));
                     while((StonesCollidingY(i)));
                     continue;
 
-
-                   
                 }
 
-
-                
               
-            stones[i].style.top=yPos+StoneMovingSpeed;
+                invaders[i].style.top=yPos+StoneMovingSpeed;
         }
         
 }
 
 
-
-
 function StonesCollidingY(index)
 {
-    var stones=document.getElementsByClassName("Stones");
-    for(var i=0;i<stones.length;i++)
+    var invaders=document.getElementsByClassName("invaders");
+    for(var i=0;i<invaders.length;i++)
         {
             if(i==index)
                 continue;
-            var height=parseInt($(stones[index]).attr("height"));
-            var yPos=parseFloat($(stones[index]).css("top"));
-            var _height=parseInt($(stones[i]).attr("height"));
-            var _yPos=parseFloat($(stones[i]).css("top"));
+            var height=parseInt($(invaders[index]).attr("height"));
+            var yPos=parseFloat($(invaders[index]).css("top"));
+            var _height=parseInt($(invaders[i]).attr("height"));
+            var _yPos=parseFloat($(stinvadersones[i]).css("top"));
             if(yPos<_yPos+_height  &&  yPos+height>_yPos)
                 return true;
 
@@ -260,16 +232,16 @@ function DestroyStones()
 {
     if(!Shooted)
         return;
-    var Stones=document.getElementsByClassName("Stones");
+    var Invaders=document.getElementsByClassName("invaders");
     var BulletElement=document.getElementById("Bullet");
-    for(var i=0;i<Stones.length;i++)
+    for(var i=0;i<invaders.length;i++)
         {
                         
         
-              var  sx=Stones[i].offsetLeft;
-              var  sy=Stones[i].offsetTop;
-              var  sh=Stones[i].offsetHeight;
-              var  sw=Stones[i].offsetWidth;
+              var  sx=invaders[i].offsetLeft;
+              var  sy=invaders[i].offsetTop;
+              var  sh=invaders[i].offsetHeight;
+              var  sw=invaders[i].offsetWidth;
             
 
 
@@ -290,7 +262,7 @@ function DestroyStones()
                Bullet.y < sy + sh &&
                Bullet.y + Bullet.h > sy)
                {
-                   $(Stones[i]).hide();
+                   $(invaders[i]).hide();
                    BulletY=-25;
                    document.getElementById("Bullet").style.top=BulletY;
                    document.getElementById("Bullet").style.left=BulletX;
@@ -321,8 +293,8 @@ function DestroyPlayer()
     if(GameOver)
         return;
     var CollisionDetector= document.getElementById("CollisionDetector");
-    var Stones=document.getElementsByClassName("Stones");
-    for(var i=0;i<Stones.length;i++)
+    var invaders=document.getElementsByClassName("invaders");
+    for(var i=0;i<invaders.length;i++)
         {
             var Player=
             {
@@ -335,10 +307,10 @@ function DestroyPlayer()
 
             var CurrentStone=
             {
-                x:Stones[i].offsetLeft,
-                y:Stones[i].offsetTop,
-                w:Stones[i].offsetWidth,
-                h:Stones[i].offsetHeight
+                x:invaders[i].offsetLeft,
+                y:invaders[i].offsetTop,
+                w:invaders[i].offsetWidth,
+                h:invaders[i].offsetHeight
             }
 
 
